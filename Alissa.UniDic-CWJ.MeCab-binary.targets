@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\AUTHORS">
+      <LInk>UniDicCWJ\AUTHORS</LInk>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\BSD">
+      <LInk>UniDicCWJ\BSD</LInk>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\COPYING">
+      <LInk>UniDicCWJ\COPYING</LInk>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\GPL">
+      <LInk>UniDicCWJ\GPL</LInk>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\LGPL">
+      <LInk>UniDicCWJ\LGPL</LInk>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\char.bin">
+      <LInk>UniDicCWJ\char.bin</LInk>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\matrix.bin">
+      <LInk>UniDicCWJ\matrix.bin</LInk>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\sys.dic">
+      <LInk>UniDicCWJ\sys.dic</LInk>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\unk.dic">
+      <LInk>UniDicCWJ\unk.dic</LInk>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

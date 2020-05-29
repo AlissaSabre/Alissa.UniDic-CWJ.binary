@@ -1,0 +1,4 @@
+# This file is primarily to keep this folder empty
+# and not to add UniDic files in the repository.
+*
+!.gitignore

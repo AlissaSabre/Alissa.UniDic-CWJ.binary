@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Alissa.UniDic-CWJ.binary</id>
+    <title>An unofficial binary package of UniDic-CWJ</title>
+    <description>An unofficial binary package of "UniDic-CWJ, the analysis dictionary for the morphological analizer MeCab" (解析用現代書き言葉 UniDic), version 2.3.0.</description>
+    <version>2.3.0-alpha</version>
+    <authors>Alissa Sabre</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">GPL-2.0-or-later OR LGPL-2.1-or-later OR BSD-3-Clause</license>
+    <projectUrl>https://github.com/AlissaSabre/Alissa.UniDic-CWJ.binary</projectUrl>
+    <releaseNotes>Alpha test version.</releaseNotes>
+    <copyright>Copyright © 2018 The UniDic Consortium</copyright>
+    <tags>UniDic MeCab NMeCab Japanese</tags>
+  </metadata>
+  <files>
+    <file src="Alissa.UniDic-CWJ.MeCab-binary.targets" target="Build" />
+    <file src="UniDicCWJ\*" exclude="*\.gitignore" target="Build\UniDicCWJ" />
+  </files>
+</package>
