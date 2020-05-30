@@ -1,20 +1,22 @@
 Alissa.UniDic-CWJ.binary
 =======================
-An unofficial binary package of UniDic-CWJ
+An unofficial nuget binary package of UniDic-CWJ
 
 ## What is it?
 
 Alissa.UniDic-CWJ.binary is a nuget package to provide binary dictionary of 
 "UniDic-CWJ, the analysis dictionary for the morphological analizer MeCab" (解析用現代書き言葉 UniDic).
 
-It is Alissa Sabre's unofficial packaging of UniDic analysis dictionary to help setting up the dictionary for use in your app. 
+It is Alissa Sabre's unofficial packaging of UniDic analysis dictionary to help setting up the dictionary for use in your app.
+
+Due to its large size (> 500MB after compression), [nuget.org] can't host it.  You need to download the nupkg file manually and setup a local package source to make use of it with your development environment.  (Will write more details later.)
 
 ## What is UniDic?
 
 UniDic is a cover-all name for
 1. <i>design principles</i> of an electronic dictionary for Japanese language based on a set of uniform lexical units (called SUW, Short Unit Word, 短単位) and hierarchical definition of word indexes both defined by National Institute for Japanese Language and Linguistics (国立国語研究所);
 2. <i>UniDic database</i>, a relational database that implements the principles; and
-3. <i>the analysis dictionaries for the morphological analizer MeCab</i>, an analysis dictionary whose entries consist of SUWs exported from the UniDic database for use with he morphological analizer MeCab.
+3. <i>the analysis dictionaries for the morphological analizer MeCab</i>, an analysis dictionary whose entries consist of SUWs exported from the UniDic database for use with the morphological analizer MeCab.
 
 You can learn more on UniDic on its official website: [https://unidic.ninjal.ac.jp]
 
@@ -28,7 +30,9 @@ The original version of MeCab was written in C++.
 
 ## How to use Alissa.UniDic-CWJ.binary?
 
-Use nuget to grab the package to include the dictionary in your application.
+Alissa.UniDic-CWJ.binary is a nuget package, so you can add the package to your development project using your development environment's standard process on nuget package.  However, due to its large size (> 500MB after compression), [nuget.org] can't host it.  You need to setup a local package feed to use Alissa.UniDic-CWJ.binary.
+
+A local package feed is just a shared file folder among your development team.  You can read more on nuget local package feed in [https://docs.microsoft.com/nuget/hosting-packages/local-feeds].
 
 Note that this nuget package only contains the binary dictionary files.
 You need to have MeCab beforehand.
