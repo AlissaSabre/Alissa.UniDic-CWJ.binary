@@ -14,7 +14,7 @@
     <tags>UniDic MeCab NMeCab Japanese</tags>
   </metadata>
   <files>
-    <file src="Alissa.UniDic-CWJ.MeCab-binary.targets" target="Build" />
+    <file src="Alissa.UniDic-CWJ.binary.targets" target="Build" />
     <file src="UniDicCWJ\*" exclude="*\.gitignore" target="Build\UniDicCWJ" />
   </files>
 </package>
