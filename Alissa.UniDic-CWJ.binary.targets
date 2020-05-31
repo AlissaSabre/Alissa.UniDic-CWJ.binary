@@ -2,39 +2,39 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\AUTHORS">
-      <LInk>UniDicCWJ\AUTHORS</LInk>
+      <Link>UniDicCWJ\AUTHORS</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\BSD">
-      <LInk>UniDicCWJ\BSD</LInk>
+      <Link>UniDicCWJ\BSD</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\COPYING">
-      <LInk>UniDicCWJ\COPYING</LInk>
+      <Link>UniDicCWJ\COPYING</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\GPL">
-      <LInk>UniDicCWJ\GPL</LInk>
+      <Link>UniDicCWJ\GPL</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\LGPL">
-      <LInk>UniDicCWJ\LGPL</LInk>
+      <Link>UniDicCWJ\LGPL</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\char.bin">
-      <LInk>UniDicCWJ\char.bin</LInk>
+      <Link>UniDicCWJ\char.bin</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\matrix.bin">
-      <LInk>UniDicCWJ\matrix.bin</LInk>
+      <Link>UniDicCWJ\matrix.bin</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\sys.dic">
-      <LInk>UniDicCWJ\sys.dic</LInk>
+      <Link>UniDicCWJ\sys.dic</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\unk.dic">
-      <LInk>UniDicCWJ\unk.dic</LInk>
+      <Link>UniDicCWJ\unk.dic</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
