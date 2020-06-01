@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Alissa.UniDic-CWJ.binary.matrix.3</id>
+    <title>Dependency #3 of Alissa.UniDic-CWJ.binary</title>
+    <summary>Split dictionary file #3 for Alissa.UniDic-CWJ.binary.</summary>
+    <description>An unofficial binary package of "UniDic-CWJ, the analysis dictionary for the morphological analizer MeCab" (解析用現代書き言葉 UniDic), version 2.3.0.
+    
+    This package includes part 3 of 3 of the split dictionary file. It is used as a dependency to the main package Alissa.UniDic-CWJ.binary.</description>
+    <version>2.3.0-beta</version>
+    <authors>Alissa Sabre</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">GPL-2.0-or-later OR LGPL-2.1-or-later OR BSD-3-Clause</license>
+    <projectUrl>https://github.com/AlissaSabre/Alissa.UniDic-CWJ.binary</projectUrl>
+    <releaseNotes>Split a big file into multiple nuget packages.</releaseNotes>
+    <copyright>Copyright © 2018 The UniDic Consortium</copyright>
+    <tags>UniDic MeCab NMeCab Japanese</tags>
+  </metadata>
+  <files>
+    <file src="Alissa.UniDic-CWJ.binary.matrix.3.targets" target="build" />
+    <file src="UniDicCWJ\matrix.003" target="build\UniDicCWJ\matrix.003" />
+  </files>
+</package>

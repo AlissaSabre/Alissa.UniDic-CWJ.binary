@@ -25,10 +25,6 @@
       <Link>UniDicCWJ\char.bin</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\matrix.bin">
-      <Link>UniDicCWJ\matrix.bin</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\sys.dic">
       <Link>UniDicCWJ\sys.dic</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -38,4 +34,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <UsingTask
+    AssemblyFile="$(MSBuildThisFileDirectory)CustomBuildTasks.dll"
+    TaskName="ConcatnateFiles"/>
+  <Target Name="ConcatenateUniDicCWJSplitFiles"
+          Inputs="@(UniDicCWJSplitFile)"
+          Outputs="$(OutDir)UniDicCWJ\matrix.bin">
+    <ConcatnateFiles Sources="@(UniDicCWJSplitFile)" Target="$(OutDir)UniDicCWJ\matrix.bin" />
+  </Target>
+  <PropertyGroup>
+    <BuildDependsOn>
+      $(BuildDependsOn);
+      ConcatenateUniDicCWJSplitFiles;
+    </BuildDependsOn>
+  </PropertyGroup>
 </Project>
