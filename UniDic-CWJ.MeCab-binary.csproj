@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- To build CustomBuildTasks.dll -->
+  <PropertyGroup>
+    <AssemblyName>CustomBuildTasks</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net4</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Configuration>Release</Configuration>
+    <Platform>AnyCPU</Platform>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CustomBuildTasks.cs" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+  </ItemGroup>
+
+  <!-- To produce four nuget packages -->
+  <PropertyGroup>
+    <PackageVersion>2.3.0-beta2</PackageVersion>
+    <NuspecProperties>PackageVersion=$(PackageVersion)</NuspecProperties>
+    <DotnetNuget>dotnet pack $(MSBuildThisFileFullPath) --no-restore --no-build --nologo</DotnetNuget>
+  </PropertyGroup>
+  <Target Name="CreateNuGetPackages" AfterTargets="Build">
+    <Exec Command="$(DotnetNuget) -p:NuspecFile=Alissa.UniDic-CWJ.binary.nuspec" />
+    <Exec Command="$(DotnetNuget) -p:NuspecFile=Alissa.UniDic-CWJ.binary.matrix.1.nuspec" />
+    <Exec Command="$(DotnetNuget) -p:NuspecFile=Alissa.UniDic-CWJ.binary.matrix.2.nuspec" />
+    <Exec Command="$(DotnetNuget) -p:NuspecFile=Alissa.UniDic-CWJ.binary.matrix.3.nuspec" />
+  </Target>
+
+</Project>

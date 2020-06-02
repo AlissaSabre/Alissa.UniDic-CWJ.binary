@@ -7,7 +7,7 @@
     <description>An unofficial binary package of "UniDic-CWJ, the analysis dictionary for the morphological analizer MeCab" (解析用現代書き言葉 UniDic), version 2.3.0.
     
     This package includes part 1 of 3 of the split dictionary file. It is used as a dependency to the main package Alissa.UniDic-CWJ.binary.</description>
-    <version>2.3.0-beta</version>
+    <version>$PackageVersion$</version>
     <authors>Alissa Sabre</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">GPL-2.0-or-later OR LGPL-2.1-or-later OR BSD-3-Clause</license>
