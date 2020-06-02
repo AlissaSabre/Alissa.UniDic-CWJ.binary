@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <!-- To build CustomBuildTasks.dll -->
+  <!-- To build CustomBuildTasks.dll using the Build target -->
   <PropertyGroup>
     <AssemblyName>CustomBuildTasks</AssemblyName>
     <OutputType>Library</OutputType>
@@ -15,13 +15,22 @@
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
   </ItemGroup>
 
-  <!-- To produce four nuget packages -->
+  <!-- To produce four nuget packages after a dll is built. -->
   <PropertyGroup>
+    <OriginalUniDicCWJFile>UniDicCWJ\unidic-cwj-2.3.0.zip</OriginalUniDicCWJFile>
     <PackageVersion>2.3.0-beta2</PackageVersion>
     <NuspecProperties>PackageVersion=$(PackageVersion)</NuspecProperties>
     <DotnetNuget>dotnet pack $(MSBuildThisFileFullPath) --no-restore --no-build --nologo</DotnetNuget>
   </PropertyGroup>
+  <ItemGroup>
+    <SplitPart Include="UniDicCWJ\matrix.001" />
+    <SplitPart Include="UniDicCWJ\matrix.002" />
+    <SplitPart Include="UniDicCWJ\matrix.003" />
+  </ItemGroup>
+  <UsingTask AssemblyFile="$(OutDir)CustomBuildTasks.dll" TaskName="SplitFile"/>
   <Target Name="CreateNuGetPackages" AfterTargets="Build">
+    <UnZip DestinationFolder="UniDicCWJ" SourceFiles="$(OriginalUniDicCWJFile)" />
+    <SplitFile Source="UniDicCWJ\unidic-cwj-2.3.0\matrix.bin" Targets="@(SplitPart)" />
     <Exec Command="$(DotnetNuget) -p:NuspecFile=Alissa.UniDic-CWJ.binary.nuspec" />
     <Exec Command="$(DotnetNuget) -p:NuspecFile=Alissa.UniDic-CWJ.binary.matrix.1.nuspec" />
     <Exec Command="$(DotnetNuget) -p:NuspecFile=Alissa.UniDic-CWJ.binary.matrix.2.nuspec" />

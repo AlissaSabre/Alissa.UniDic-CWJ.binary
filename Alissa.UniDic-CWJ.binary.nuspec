@@ -24,6 +24,13 @@
   <files>
     <file src="Alissa.UniDic-CWJ.binary.targets" target="build" />
     <file src="bin\Release\net4\CustomBuildTasks.dll" target="build" />
-    <file src="UniDicCWJ\*" exclude="*\.gitignore;*\matrix.*" target="build\UniDicCWJ" />
+    <file src="UniDicCWJ\unidic-cwj-2.3.0\AUTHORS" target="build\UniDicCWJ\AUTHORS" />
+    <file src="UniDicCWJ\unidic-cwj-2.3.0\BSD" target="build\UniDicCWJ\BSD" />
+    <file src="UniDicCWJ\unidic-cwj-2.3.0\COPYING" target="build\UniDicCWJ\COPYING" />
+    <file src="UniDicCWJ\unidic-cwj-2.3.0\GPL" target="build\UniDicCWJ\GPL" />
+    <file src="UniDicCWJ\unidic-cwj-2.3.0\LGPL" target="build\UniDicCWJ\LGPL" />
+    <file src="UniDicCWJ\unidic-cwj-2.3.0\char.bin" target="build\UniDicCWJ\char.bin" />
+    <file src="UniDicCWJ\unidic-cwj-2.3.0\sys.dic" target="build\UniDicCWJ\sys.dic" />
+    <file src="UniDicCWJ\unidic-cwj-2.3.0\unk.dic" target="build\UniDicCWJ\unk.dic" />
   </files>
 </package>
