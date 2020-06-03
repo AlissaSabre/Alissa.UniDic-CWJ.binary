@@ -45,27 +45,7 @@ It contains additional files other than UniDic that I used to produce the set of
 
 ## How can I build the nuget package(s) using the files in this repository, then?
 
-I'm currently working on an _automatic_ building process, so it may be better to wait for a while if you are not in hurry.
-
-If you want to reproduce the nuget package(s) by yourself now, follow the steps below.
-1. Clone this repository.
-2. Visit the official UniDic website [https://unidic.ninjal.ac.jp] and download the version 2.3.0 of "UniDic CWJ analysis dictionary for the morphological analizer MeCab" (解析用現代書き言葉 UniDic) by agreeing to the license terms, and save the zip archive file (unidic-cwj-2.3.0.zip) in a handy location.
-3. Extract the following nine files from the zip archive and copy them into the folder `UniDic-CWJ`.
-    - `AUTHORS`
-    - `BSD`
-    - `COPYING`
-    - `GPL`
-    - `LGPL`
-    - `char.bin`
-    - `matrix.bin`
-    - `sys.dic`
-    - `unk.dic`
-4. Split the largest file, `matrix.bin`, into three files of similar sizes, and name them `matrix.001`, `matrix.002`, and `matxrix.003` in the order.  Note that the version I have uploaded to [nuget.org](https://www.nuget.org/) are split in 249,868,721, 249,868,721, and 249,868,722 bytes, respectively (though the exact sizes are not important.)
-5. Create four nuget packages by using the nuget CLI tool four times, with the following arguments:
-    - `nuget pack .\Alissa.UniDic-CWJ.binary.nuspec`
-    - `nuget pack .\Alissa.UniDic-CWJ.binary.matrix.1.nuspec`
-    - `nuget pack .\Alissa.UniDic-CWJ.binary.matrix.2.nuspec`
-    - `nuget pack .\Alissa.UniDic-CWJ.binary.matrix.3.nuspec`
+Please see [another page](Howtobuild.md).
 
 ## Revision history
 
@@ -75,9 +55,10 @@ If you want to reproduce the nuget package(s) by yourself now, follow the steps 
 
 ## Copyright information
 
-The UniDic CWJ analysis dictionary for the morphological analizer MeCab" (解析用現代書き言葉 UniDic) is copyrighted by The UniDic Consortium.  It is distributed under the choice of three open source licenses, GPL 2, LGPL 2, or BSD.  See the file COPYING for details.
+The UniDic CWJ analysis dictionary for the morphological analizer MeCab (解析用現代書き言葉 UniDic) is copyrighted by The UniDic Consortium.  It is distributed under the choice of three open source licenses, GPL 2, LGPL 2, or BSD.  See the file COPYING for details.
 
-The nuget package files and their support files (included in this repository) are written by Alissa Sabre and are licensed under the same condition as the UniDic CWJ.
+The nuget package files and their support files (included in this repository) are crafted/written by Alissa Sabre and are licensed under the same condition as the UniDic CWJ.  Please give credits to The UniDic Consortium when referring to these nuget packages unless you are talking about the features, issues, etc. specific to my packaging.
 
 Have fun!
+
 Alissa Sabre
