@@ -19,10 +19,11 @@
     <UniDicCWJZipFile>UniDic-CWJ\unidic-cwj-2.3.0.zip</UniDicCWJZipFile>
     <MatrixBinFile>UniDic-CWJ\unidic-cwj-2.3.0\matrix.bin</MatrixBinFile>
     <PackageVersion>2.3.0-beta2</PackageVersion>
+    <PackageReleaseNotes>Fixed an issue on Clean build target. Changed the default folder name.</PackageReleaseNotes>
     <NupkgsDirectory>nupkgs\</NupkgsDirectory>
   </PropertyGroup>
   <PropertyGroup>
-    <NuspecProperties>PackageVersion=$(PackageVersion)</NuspecProperties>
+    <NuspecProperties>PackageVersion=$(PackageVersion);PackageReleaseNotes=$(PackageReleaseNotes)</NuspecProperties>
     <DotnetPack>dotnet pack $(MSBuildThisFileFullPath) --output $(NupkgsDirectory) --no-restore --no-build --nologo</DotnetPack>
   </PropertyGroup>
   <ItemGroup>
