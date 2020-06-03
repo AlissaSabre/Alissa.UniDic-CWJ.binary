@@ -41,12 +41,12 @@
 
   <!-- To remove intermediate files produced in CreateNuGetPackages target -->
   <ItemGroup>
-    <IntermediateFileToRemove Include="UniDicCWJ\**" Exclude="UniDicCWJ\.gitignore;UniDicCWJ\*.zip" />
-    <IntermediateDirectoryToRemove Include="@(IntermediateFileToRemove->DirectoryName()->Distinct())" Exclude="UniDicCWJ" />
+    <FilesInUniDicCWJ Include="UniDicCWJ\**" />
+    <IntermediateDirectoriesToRemove Include="@(IntermediateFileToRemove->DirectoryName()->Distinct())" Exclude="UniDicCWJ" />
   </ItemGroup>
   <Target Name="CleanNuGetPackageIntermediateFiles" BeforeTargets="CleanNuGetPackages">
-    <Delete Files="@(IntermediateFileToRemove)"/>
-    <RemoveDir Directories="@(IntermediateDirectoryToRemove)" />
+    <Delete Files="@(SplitPart)"/>
+    <RemoveDir Directories="@(IntermediateDirectoriesToRemove)" />
   </Target>
 
   <!-- To remove the produced nuget packages -->
