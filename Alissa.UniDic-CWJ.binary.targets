@@ -1,36 +1,40 @@
 <?xml version="1.0"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
+
+  <ItemGroup Condition="'$(CopyUniDicCWJLegalDocuments)' != false">
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\AUTHORS">
-      <Link>UniDicCWJ\AUTHORS</Link>
+      <Link>$(UniDicCWJFolder)AUTHORS</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\BSD">
-      <Link>UniDicCWJ\BSD</Link>
+      <Link>$(UniDicCWJFolder)BSD</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\COPYING">
-      <Link>UniDicCWJ\COPYING</Link>
+      <Link>$(UniDicCWJFolder)COPYING</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\GPL">
-      <Link>UniDicCWJ\GPL</Link>
+      <Link>$(UniDicCWJFolder)GPL</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\LGPL">
-      <Link>UniDicCWJ\LGPL</Link>
+      <Link>$(UniDicCWJFolder)LGPL</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\char.bin">
-      <Link>UniDicCWJ\char.bin</Link>
+      <Link>$(UniDicCWJFolder)char.bin</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\sys.dic">
-      <Link>UniDicCWJ\sys.dic</Link>
+      <Link>$(UniDicCWJFolder)sys.dic</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\unk.dic">
-      <Link>UniDicCWJ\unk.dic</Link>
+      <Link>$(UniDicCWJFolder)unk.dic</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -40,12 +44,12 @@
     TaskName="ConcatnateFiles"/>
   <Target Name="ConcatenateUniDicCWJSplitFiles"
           Inputs="@(UniDicCWJSplitFile)"
-          Outputs="$(OutDir)UniDicCWJ\matrix.bin">
-    <ConcatnateFiles Sources="@(UniDicCWJSplitFile)" Target="$(OutDir)UniDicCWJ\matrix.bin" />
+          Outputs="$(OutDir)$(UniDicCWJFolder)matrix.bin">
+    <ConcatnateFiles Sources="@(UniDicCWJSplitFile)" Target="$(OutDir)$(UniDicCWJFolder)matrix.bin" />
   </Target>
 
   <Target Name="CleanUniDicCWJSplitFile">
-    <Delete Files="$(OutDir)UniDicCWJ\matrix.bin" />
+    <Delete Files="$(OutDir)$(UniDicCWJFolder)matrix.bin" />
   </Target>
 
   <PropertyGroup>
@@ -58,4 +62,5 @@
       CleanUniDicCWJSplitFile;
     </CleanDependsOn>
   </PropertyGroup>
+
 </Project>

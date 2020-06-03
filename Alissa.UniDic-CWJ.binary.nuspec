@@ -22,6 +22,7 @@
     </dependencies>
   </metadata>
   <files>
+    <file src="Alissa.UniDic-CWJ.binary.props" target="build" />
     <file src="Alissa.UniDic-CWJ.binary.targets" target="build" />
     <file src="bin\Release\net4\CustomBuildTasks.dll" target="build" />
     <file src="UniDicCWJ\unidic-cwj-2.3.0\AUTHORS" target="build\UniDicCWJ\AUTHORS" />

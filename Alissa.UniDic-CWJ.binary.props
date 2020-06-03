@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+
+    <!--  The folder that UniDic-CWJ files are copied to.
+          It must either be an empty or end with a backslash (\).
+          You can't specify an absolute path; it is always relative to $(OutDir). -->
+    <UniDicCWJFolder>UniDic-CWJ\</UniDicCWJFolder>
+
+    <!--  Whether to copy legal documents (AUTHORS, COPYING, GPL, LGPL, and BSD)
+          to $(OutDir) along with the dictionary files. Please note that you are
+          obligated to somehow distribute applicable legal documents with your
+          app as long as your app includes the dictionary files. Please read
+          those legal documents (and possibly consult your lawyer) for details. -->
+    <CopyUniDicCWJLegalDocuments>true</CopyUniDicCWJLegalDocuments>
+
+  </PropertyGroup>
+
+</Project>
