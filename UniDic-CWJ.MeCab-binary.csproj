@@ -12,15 +12,17 @@
   <ItemGroup>
     <Compile Include="CustomBuildTasks.cs" />
     <Reference Include="Microsoft.Build.Framework" />
-    <Reference Include="Microsoft.Build.Utilities.v4.0" />
   </ItemGroup>
 
   <!-- To produce four nuget packages after a dll is built. -->
   <PropertyGroup>
     <OriginalUniDicCWJFile>UniDicCWJ\unidic-cwj-2.3.0.zip</OriginalUniDicCWJFile>
     <PackageVersion>2.3.0-beta2</PackageVersion>
+    <NupkgsDirectory>nupkgs\</NupkgsDirectory>
+  </PropertyGroup>
+  <PropertyGroup>
     <NuspecProperties>PackageVersion=$(PackageVersion)</NuspecProperties>
-    <DotnetNuget>dotnet pack $(MSBuildThisFileFullPath) --no-restore --no-build --nologo</DotnetNuget>
+    <DotnetNuget>dotnet pack $(MSBuildThisFileFullPath) --output $(NupkgsDirectory) --no-restore --no-build --nologo</DotnetNuget>
   </PropertyGroup>
   <ItemGroup>
     <SplitPart Include="UniDicCWJ\matrix.001" />
@@ -35,6 +37,24 @@
     <Exec Command="$(DotnetNuget) -p:NuspecFile=Alissa.UniDic-CWJ.binary.matrix.1.nuspec" />
     <Exec Command="$(DotnetNuget) -p:NuspecFile=Alissa.UniDic-CWJ.binary.matrix.2.nuspec" />
     <Exec Command="$(DotnetNuget) -p:NuspecFile=Alissa.UniDic-CWJ.binary.matrix.3.nuspec" />
+  </Target>
+
+  <!-- To remove intermediate files produced in CreateNuGetPackages target -->
+  <ItemGroup>
+    <IntermediateFileToRemove Include="UniDicCWJ\**" Exclude="UniDicCWJ\.gitignore;UniDicCWJ\*.zip" />
+    <IntermediateDirectoryToRemove Include="@(IntermediateFileToRemove->DirectoryName()->Distinct())" Exclude="UniDicCWJ" />
+  </ItemGroup>
+  <Target Name="CleanNuGetPackageIntermediateFiles" BeforeTargets="CleanNuGetPackages">
+    <Delete Files="@(IntermediateFileToRemove)"/>
+    <RemoveDir Directories="@(IntermediateDirectoryToRemove)" />
+  </Target>
+
+  <!-- To remove the produced nuget packages -->
+  <ItemGroup>
+    <NupkgToRemove Include="$(NupkgsDirectory)*.nupkg" />
+  </ItemGroup>
+  <Target Name="CleanNuGetPackages" AfterTargets="Clean">
+    <Delete Files="@(NupkgToRemove)" />
   </Target>
 
 </Project>
