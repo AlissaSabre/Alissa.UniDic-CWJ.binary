@@ -34,6 +34,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
   <UsingTask
     AssemblyFile="$(MSBuildThisFileDirectory)CustomBuildTasks.dll"
     TaskName="ConcatnateFiles"/>
@@ -42,10 +43,19 @@
           Outputs="$(OutDir)UniDicCWJ\matrix.bin">
     <ConcatnateFiles Sources="@(UniDicCWJSplitFile)" Target="$(OutDir)UniDicCWJ\matrix.bin" />
   </Target>
+
+  <Target Name="CleanUniDicCWJSplitFile">
+    <Delete Files="$(OutDir)UniDicCWJ\matrix.bin" />
+  </Target>
+
   <PropertyGroup>
     <BuildDependsOn>
       $(BuildDependsOn);
       ConcatenateUniDicCWJSplitFiles;
     </BuildDependsOn>
+    <CleanDependsOn>
+      $(CleanDependsOn);
+      CleanUniDicCWJSplitFile;
+    </CleanDependsOn>
   </PropertyGroup>
 </Project>
