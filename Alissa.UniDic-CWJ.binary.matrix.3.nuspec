@@ -18,6 +18,6 @@
   </metadata>
   <files>
     <file src="Alissa.UniDic-CWJ.binary.matrix.3.targets" target="build" />
-    <file src="UniDicCWJ\matrix.003" target="build\UniDicCWJ\matrix.003" />
+    <file src="UniDic-CWJ\matrix.003" target="build\UniDic-CWJ\matrix.003" />
   </files>
 </package>
