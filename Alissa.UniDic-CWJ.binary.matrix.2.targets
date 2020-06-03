@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <UniDicCWJSplitFile Include="$(MSBuildThisFileDirectory)UniDicCWJ\matrix.002" />
+    <UniDicCWJSplitFile Include="$(MSBuildThisFileDirectory)UniDic-CWJ\matrix.002" />
   </ItemGroup>
 </Project>

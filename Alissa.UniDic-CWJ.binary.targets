@@ -2,38 +2,38 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <ItemGroup Condition="'$(CopyUniDicCWJLegalDocuments)' != false">
-    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\AUTHORS">
+    <None Include="$(MSBuildThisFileDirectory)UniDic-CWJ\AUTHORS">
       <Link>$(UniDicCWJFolder)AUTHORS</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\BSD">
+    <None Include="$(MSBuildThisFileDirectory)UniDic-CWJ\BSD">
       <Link>$(UniDicCWJFolder)BSD</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\COPYING">
+    <None Include="$(MSBuildThisFileDirectory)UniDic-CWJ\COPYING">
       <Link>$(UniDicCWJFolder)COPYING</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\GPL">
+    <None Include="$(MSBuildThisFileDirectory)UniDic-CWJ\GPL">
       <Link>$(UniDicCWJFolder)GPL</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\LGPL">
+    <None Include="$(MSBuildThisFileDirectory)UniDic-CWJ\LGPL">
       <Link>$(UniDicCWJFolder)LGPL</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\char.bin">
+    <None Include="$(MSBuildThisFileDirectory)UniDic-CWJ\char.bin">
       <Link>$(UniDicCWJFolder)char.bin</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\sys.dic">
+    <None Include="$(MSBuildThisFileDirectory)UniDic-CWJ\sys.dic">
       <Link>$(UniDicCWJFolder)sys.dic</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)UniDicCWJ\unk.dic">
+    <None Include="$(MSBuildThisFileDirectory)UniDic-CWJ\unk.dic">
       <Link>$(UniDicCWJFolder)unk.dic</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
