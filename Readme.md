@@ -31,9 +31,9 @@ The original version of MeCab was written in C++.
 
 ## How to use it?
 
-Use your nuget/MSBuild-compatible development environment to download and install `Alissa.UniDic-CWJ.binary` nuget package into your app project.  During the build process of  your app (using MSBuild or a compatible build too), a subfolder of name `UniDicCWJ` is created in your `OutDir` (the folder that you will get your `.exe` or `.dll` in), and the binary files of analysis dictionary are copied into it automatically.
+Use your nuget/MSBuild-compatible development environment to download and install `Alissa.UniDic-CWJ.binary` nuget package into your app project.  During the build process of your app (using MSBuild or a compatible build tool), a subfolder of name `UniDic-CWJ` is created in your `$(OutDir)` (the folder that you will get your `.exe` or `.dll` in), and the binary files of analysis dictionary are copied into it automatically.
 
-Due to the large size of the dictionary files and the package size limitation that [nuget.org](https://www.nuget.org/) insists, the dictionary files are split into four nuget packages: the main package `Alissa.UniDic-CWJ.binary` and three supplementary packages.  You always need the four packages to use UniDic-CWJ analysis dictionary. The main package depends on the three supplementary packages, so you need to specify the main package only in your development environment; Supplementary packages are downloaded and installed automatically.
+Due to the large size of the dictionary files and the package size limitation that [nuget.org](https://www.nuget.org/) insists, the dictionary files are split into four nuget packages: the main package `Alissa.UniDic-CWJ.binary` and three supplementary packages.  You always need the four packages to use UniDic-CWJ analysis dictionary. The main package depends on the three supplementary packages, so you only need to specify the main package in your development environment; supplementary packages should be downloaded and installed automatically.
 
 Note that this nuget package (or a set of four packages) only contains the binary dictionary files.
 You need to have MeCab (or compatible software) separately.
@@ -50,7 +50,7 @@ I'm currently working on an _automatic_ building process, so it may be better to
 If you want to reproduce the nuget package(s) by yourself now, follow the steps below.
 1. Clone this repository.
 2. Visit the official UniDic website [https://unidic.ninjal.ac.jp] and download the version 2.3.0 of "UniDic CWJ analysis dictionary for the morphological analizer MeCab" (解析用現代書き言葉 UniDic) by agreeing to the license terms, and save the zip archive file (unidic-cwj-2.3.0.zip) in a handy location.
-3. Extract the following nine files from the zip archive and copy them into the folder `UniDicCWJ`.
+3. Extract the following nine files from the zip archive and copy them into the folder `UniDic-CWJ`.
     - `AUTHORS`
     - `BSD`
     - `COPYING`
@@ -69,6 +69,7 @@ If you want to reproduce the nuget package(s) by yourself now, follow the steps 
 
 ## Revision history
 
+- 2020-6-3: 2.3.0 Beat2: various fixes including Clean build target issue.  Also changed the default folder name to `UniDic-CWJ`.
 - 2020-6-1: 2.3.0 Beta posted on [nuget.org](https://www.nuget.org/) by splitting the files into four packages.
 - 2020-5-30: 2.3.0 Alpha posted on [SourceForge](https://sourceforge.net/projects/alissa-unidic-cwj-binary/files/) (because it was too large for distribution from [nuget.org](https://www.nuget.org/)).
 
