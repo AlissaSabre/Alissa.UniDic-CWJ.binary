@@ -22,7 +22,7 @@
   <files>
     <file src="Alissa.UniDic-CWJ.binary.props" target="build" />
     <file src="Alissa.UniDic-CWJ.binary.targets" target="build" />
-    <file src="bin\Release\net4\CustomBuildTasks.dll" target="build" />
+    <file src="$CustomBuildTasksDll$" target="build" />
     <file src="UniDic-CWJ\unidic-cwj-2.3.0\AUTHORS" target="build\UniDic-CWJ\AUTHORS" />
     <file src="UniDic-CWJ\unidic-cwj-2.3.0\BSD" target="build\UniDic-CWJ\BSD" />
     <file src="UniDic-CWJ\unidic-cwj-2.3.0\COPYING" target="build\UniDic-CWJ\COPYING" />

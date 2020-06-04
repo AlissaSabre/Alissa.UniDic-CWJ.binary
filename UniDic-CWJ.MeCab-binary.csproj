@@ -4,26 +4,29 @@
   <PropertyGroup>
     <AssemblyName>CustomBuildTasks</AssemblyName>
     <OutputType>Library</OutputType>
-    <TargetFramework>net4</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <Configuration>Release</Configuration>
     <Platform>AnyCPU</Platform>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomBuildTasks.cs" />
-    <Reference Include="Microsoft.Build.Framework" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="15.1.548" ExcludeAssets="runtime" />
   </ItemGroup>
 
   <!-- To produce four nuget packages after a dll is built. -->
   <PropertyGroup>
     <UniDicCWJZipFile>UniDic-CWJ\unidic-cwj-2.3.0.zip</UniDicCWJZipFile>
     <MatrixBinFile>UniDic-CWJ\unidic-cwj-2.3.0\matrix.bin</MatrixBinFile>
-    <PackageVersion>2.3.0-beta2</PackageVersion>
-    <PackageReleaseNotes>Fixed an issue on Clean build target. Changed the default folder name.</PackageReleaseNotes>
-    <NupkgsDirectory>nupkgs\</NupkgsDirectory>
+    <PackageVersion>2.3.0-beta3</PackageVersion>
+    <PackageReleaseNotes>Improved compatibility with non-Windows platforms.</PackageReleaseNotes>
+    <NupkgsDirectory>nupkgs</NupkgsDirectory>
   </PropertyGroup>
   <PropertyGroup>
-    <NuspecProperties>PackageVersion=$(PackageVersion);PackageReleaseNotes=$(PackageReleaseNotes)</NuspecProperties>
+    <NuspecProperties>
+      PackageVersion=$(PackageVersion);
+      PackageReleaseNotes=$(PackageReleaseNotes);
+      CustomBuildTasksDll=bin\$(Configuration)\$(TargetFramework)\CustomBuildTasks.dll</NuspecProperties>
     <DotnetPack>dotnet pack $(MSBuildThisFileFullPath) --output $(NupkgsDirectory) --no-restore --no-build --nologo</DotnetPack>
   </PropertyGroup>
   <ItemGroup>
@@ -53,7 +56,7 @@
 
   <!-- To remove the produced nuget packages -->
   <ItemGroup>
-    <NupkgsToRemove Include="$(NupkgsDirectory)*.nupkg" />
+    <NupkgsToRemove Include="$(NupkgsDirectory)\*.nupkg" />
   </ItemGroup>
   <Target Name="CleanNuGetPackages" AfterTargets="Clean">
     <Delete Files="@(NupkgsToRemove)" />
