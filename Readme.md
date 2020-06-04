@@ -49,7 +49,8 @@ Please see [another page](Howtobuild.md).
 
 ## Revision history
 
-- 2020-6-3: 2.3.0 Beat2: various fixes including Clean build target issue.  Also changed the default folder name to `UniDic-CWJ`.
+- 2020-6-4: 2.3.0 Beta3: Improved compatibility with Linux and MacOS.
+- 2020-6-3: 2.3.0 Beat2: Various fixes including Clean build target issue.  Also changed the default folder name to `UniDic-CWJ`.
 - 2020-6-1: 2.3.0 Beta posted on [nuget.org](https://www.nuget.org/) by splitting the files into four packages.
 - 2020-5-30: 2.3.0 Alpha posted on [SourceForge](https://sourceforge.net/projects/alissa-unidic-cwj-binary/files/) (because it was too large for distribution from [nuget.org](https://www.nuget.org/)).
 

@@ -4,19 +4,18 @@ How to build Alissa.UniDic-CWJ.binary package(s)
 This page describes how to build the `Alissa.UniDic-CWJ.binary` nuget package and its suplementary pacakges using the files included in this repository.
 If you are looking for information how to use the packages in your app, please see [the main Readme](Readme.md).
 
+## Free disk space > 10GB
+
+You need enough free disk space to build `Alissa.UniDic-CWJ.binary`.  Due to the large size of UniDic-CWJ analysis dictionary for morphological analizer MeCab as well as inefficient disk usage of my own build process, the total size of the files in the working tree exceeds 10GB after the build is finished.  Explorer reported me that it occupies 10.3GB on disk.
+
 ## Prerequisites
 
-You need the following two development toolsets (or equivalent):
-1. .NET Core SDK including `dotnet` CLI tool.
-2. .NET Framework Developer Pack.
+You need .NET Core SDK (version 2.1 or later) or equivalent development environment, including `dotnet` CLI tool.
+(Beginning with 2.3.0 Beta 3, you don't need .NET Framwork Developer Pack anymore.)  If you have Visual Studio 2019 with the workload _.NET Core cross-platform development_, that should be sufficient.
 
-I'm not sure exactly which versions you will need.  My PC has .NET Core SDK 3.1 and .NET Framework Developer Pack 4.8, and I'm too lazy to clarify the minimum requirements.  If you have Visual Studio 2019 with workloads _.NET desktop development_ and _.NET Core cross-platform development_, that should be sufficient.  (I'm _not_ using Visual Studio 2019, though.)
-
-I'm working on Windows 10.  You may or may not be able to build this package on another platform.  The problem is that the build process requires to produce an assembly targetting .NET Framework 4.0.  See [below](#About-CustomBuildTasks) to know more on this point.  (I love to know the result if you tried, regardless it was successful or not.)
+I'm primarily working on Windows 10, but you can build the set of Alissa.UniDic-CWJ.binary packages on Linux or MacOS, too.  (This is a new feature in 2.3.0 Beta 3).
 
 ## Building steps
-
-First of all, you need enough free disk space (> 10GB).  Due to the large size of UniDic-CWJ analysis dictionary for morphological analizer MeCab as well as inefficient disk usage of my own build process, the total size of the files in the working tree exceeds 10GB after the build is finished.  Explorer reported me that it occupies 10.3GB on disk.
 
 After ensuring the free disk space, follow the steps below to build the nuget packages:
 1. Clone this repository.
@@ -37,7 +36,7 @@ The build proceeds as follows:
     - `matrix.bin`
     - `sys.dic`
     - `unk.dic`
-3. The largest file among them, `matrix.bin` is split into three smaller files: `matrix.001`, `matrix.002`, and `matrix.003`.
+3. The largest file among them, `matrix.bin`, is split into three smaller files: `matrix.001`, `matrix.002`, and `matrix.003`.
 4. The four nuget packages are created, internally issueing `dotnet pack` command four times.
 
 Note that the project file, `UniDic-CWJ.MeCab-binary.csproj` is crafted by hands from the scratch, and it is in an unusual organization.  It supports two targets, `Build` and `Clean` (so that `dotnet clean` works).  I'm not sure whether other standard MSBuild targets work with it.
@@ -50,10 +49,4 @@ The binary analysis dictionary of UniDic-CWJ consists of four files, and the lar
 
 The splitting and concatenation are performed in the build processes by MSBuild; the splitting is during the build of this nuget package, and the concatenation is during the build of the client project.  To do so, I wrote `CustomBuildTasks.cs` containing two `Microsoft.Build.Framework.ITask` implementations.  `Alissa.UniDic.CustomBuildTasks.SplitFile` task performs the split, and `Alissa.UniDic.CustomBuildTasks.ConcatnateFiles` task performs the concatenation.
 
-The problem is that `Microsoft.Build.Framework` assembly, that is essential to create a custom MSBuild task, appears only compatible with .NET Framwork (as opposed to .NET Core).  That's why the build process requires .NET Framework Developer Pack.
-
-However, thinking twice about it, I felt it is strange.  .NET Core SDK comes with MSBuild, and it runs on .NET Core.  Actually I can successfully run `dotnet build` command to build a client (.NET Core) project that installed `Alissa.UniDic-CWJ.binary` on Linux or MacOS, so the `CustomBuildTasks.dll` targetting .NET Framwork 4 is executed on .NET Core SDK, referring to `Microsoft.Build.Framework` assembly.
-
-The observation makes me think that there should be a way to produce `CustomBuildTasks.dll` without using .NET Framwork Developer Pack.  Any idea?  I love to know it!
-
-Alissa Sabre
+`CustomBuildTasks.dll` depends on `Microsoft.Build.Framework` assembly, and it will be _restored_ automatically using nuget.
