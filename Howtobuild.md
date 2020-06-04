@@ -16,7 +16,9 @@ I'm working on Windows 10.  You may or may not be able to build this package on 
 
 ## Building steps
 
-Follow the steps below to build the nuget packages:
+First of all, you need enough free disk space (> 10GB).  Due to the large size of UniDic-CWJ analysis dictionary for morphological analizer MeCab as well as inefficient disk usage of my own build process, the total size of the files in the working tree exceeds 10GB after the build is finished.  Explorer reported me that it occupies 10.3GB on disk.
+
+After ensuring the free disk space, follow the steps below to build the nuget packages:
 1. Clone this repository.
 2. Visit the official UniDic website [https://unidic.ninjal.ac.jp] and download the version 2.3.0 of "UniDic CWJ analysis dictionary for the morphological analizer MeCab" (解析用現代書き言葉 UniDic) by agreeing to the license terms, and save the zip archive file (unidic-cwj-2.3.0.zip) in a folder of name `UniDic-CWJ` in the working tree.  Don't unzip the file by yourself at the moment.
 3. Type `dotnet build` and wait for a while.  You will get the four `*.nupkg` files in the folder of name `nupkgs` that the build system creates.
