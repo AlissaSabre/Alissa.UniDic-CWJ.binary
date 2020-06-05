@@ -18,8 +18,8 @@
   <PropertyGroup>
     <UniDicCWJZipFile>UniDic-CWJ\unidic-cwj-2.3.0.zip</UniDicCWJZipFile>
     <MatrixBinFile>UniDic-CWJ\unidic-cwj-2.3.0\matrix.bin</MatrixBinFile>
-    <PackageVersion>2.3.0-beta3</PackageVersion>
-    <PackageReleaseNotes>Improved compatibility with non-Windows platforms.</PackageReleaseNotes>
+    <PackageVersion>2.3.0-beta4</PackageVersion>
+    <PackageReleaseNotes>Preserved timestamp of matrix.bin.</PackageReleaseNotes>
     <NupkgsDirectory>nupkgs</NupkgsDirectory>
   </PropertyGroup>
   <PropertyGroup>

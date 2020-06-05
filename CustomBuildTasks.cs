@@ -46,6 +46,7 @@ namespace Alissa.UniDic.CustomBuildTasks
             bool success = true;
             try
             {
+                DateTime? timestamp = null;
                 using (var output = File.OpenWrite(Target.ItemSpec))
                 {
                     foreach (var source in Helper.SortItems(Sources))
@@ -54,6 +55,10 @@ namespace Alissa.UniDic.CustomBuildTasks
                         {
                             if (source.ItemSpec?.Length > 0)
                             {
+                                if (timestamp == null)
+                                {
+                                    timestamp = File.GetLastWriteTime(source.ItemSpec);
+                                }
                                 using (var input = File.OpenRead(source.ItemSpec))
                                 {
                                     input.CopyTo(output);
@@ -68,6 +73,10 @@ namespace Alissa.UniDic.CustomBuildTasks
                             success = false;
                         }
                     }
+                }
+                if (timestamp != null)
+                {
+                    File.SetLastWriteTime(Target.ItemSpec, timestamp.Value);
                 }
             }
             catch (Exception e)
@@ -139,6 +148,7 @@ namespace Alissa.UniDic.CustomBuildTasks
             bool success = true;
             try
             {
+                var timestamp = File.GetLastWriteTime(Source.ItemSpec);
                 using (var input = File.OpenRead(Source.ItemSpec))
                 {
                     var targets = Helper.SortItems(Targets);
@@ -147,11 +157,12 @@ namespace Alissa.UniDic.CustomBuildTasks
                     var buffer = new byte[BufferSize];
                     for (int i = 0; i < targets.Length; i++)
                     {
+                        var target_file = targets[i].ItemSpec;
                         long remaining = part_length + (i < extras ? 1 : 0);
                         long goal_position = input.Position + remaining;
                         try
                         {
-                            using (var output = File.OpenWrite(targets[i].ItemSpec))
+                            using (var output = File.OpenWrite(target_file))
                             {
                                 while (remaining > 0)
                                 {
@@ -161,6 +172,7 @@ namespace Alissa.UniDic.CustomBuildTasks
                                     remaining -= n;
                                 }
                             }
+                            File.SetLastWriteTime(target_file, timestamp);
                         }
                         catch (IOException e)
                         {

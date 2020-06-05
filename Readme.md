@@ -49,6 +49,7 @@ Please see [another page](Howtobuild.md).
 
 ## Revision history
 
+- 2020-6-5: 2.3.0 Beta4: Preserved timestamp of `matrix.bin`.
 - 2020-6-4: 2.3.0 Beta3: Improved compatibility with Linux and MacOS.
 - 2020-6-3: 2.3.0 Beat2: Various fixes including Clean build target issue.  Also changed the default folder name to `UniDic-CWJ`.
 - 2020-6-1: 2.3.0 Beta posted on [nuget.org](https://www.nuget.org/) by splitting the files into four packages.
