@@ -1,4 +1,5 @@
-# This file is primarily to keep this folder empty
-# and not to add UniDic files in the repository.
+# This folder (UniDic-CWJ) is kept empty in the source repository.
+# You put unidic-cwj-2.3.0.zip in this folder before build.
+# It will also hold some intermediate files.
 *
 !.gitignore
